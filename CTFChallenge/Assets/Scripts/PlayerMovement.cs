@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool IsGrounded()
     {
-        if (rb.velocity.x == 0 && rb.velocity.y == 0)
+        if (rb.velocity.y == 0)
         {
             return true;
         }
