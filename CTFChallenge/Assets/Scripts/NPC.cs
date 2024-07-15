@@ -1,13 +1,12 @@
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
 public class NPC : MonoBehaviour
 {
-    public GameObject continueButton;
+    //public GameObject continueButton;
     public GameObject dialoguePanel;
-    public TextMeshProUGUI dialogueText;
+    public Text dialogueText;
     public string[] dialogue;
     private int index;
     
@@ -33,7 +32,7 @@ public class NPC : MonoBehaviour
 
         if (dialogueText.text == dialogue[index])
         {
-            continueButton.SetActive(true);
+            //continueButton.SetActive(true);
         }
     }
 
@@ -55,7 +54,7 @@ public class NPC : MonoBehaviour
 
     public void NextLine()
     {
-        continueButton.SetActive(false);
+        //continueButton.SetActive(false);
         if (index < dialogue.Length -1)
         {
             index++;
