@@ -13,9 +13,9 @@ public class GraveyardScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && playerIsClose)
         {
-            if (dialoguePanel.activeInHierarchy)
+            if (panel.activeInHierarchy)
             {
-                anel.SetActive(false);
+                panel.SetActive(false);
             }
             else
             {
