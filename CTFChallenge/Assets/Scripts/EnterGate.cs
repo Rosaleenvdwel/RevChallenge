@@ -5,36 +5,42 @@ using UnityEngine.SceneManagement;
 
 public class EnterGate : MonoBehaviour
 {
-    private bool enterAllowed;
-    private string sceneToLoad;
-
+    string sceneToLoad;
+    bool playerIsClose;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<stonegate1>())
+        Scene currentScene = SceneManager.GetActiveScene();
+
+        if (collision.CompareTag("Player"))
         {
-            sceneToLoad = "nextStage";
-            enterAllowed = true;
+            playerIsClose = true;
+            if (currentScene.name == "SampleScene")
+            {
+                sceneToLoad = "nextStage";
+            }
+            else 
+            {
+                sceneToLoad = "SampleScene";
+            }
         }
-        else if (collision.GetComponent<stonegate2>())
-        {
-            sceneToLoad = "SampleScene 1";
-            enterAllowed = true;
-        }
+        
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.GetComponent<stonegate1>() || collision.GetComponent<stonegate2>())
+        if (collision.CompareTag("Player"))
         {
-            enterAllowed = false;
+            playerIsClose = false;
         }
     }
 
-    private void Update()
+    void Update()
     {
-        if (enterAllowed && Input.GetKey(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.E) && playerIsClose)
         {
             SceneManager.LoadScene(sceneToLoad);
         }
     }
+
+    
 }
