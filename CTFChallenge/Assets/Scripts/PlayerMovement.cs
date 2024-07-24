@@ -36,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool IsGrounded()
     {
+        Debug.Log(rb.velocity.y);
         if (rb.velocity.y == 0)
         {
             return true;
